@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@font-face {
+  font-family: Inter;
+  font-style: normal;
+  font-weight: 200 700;
+  font-display: swap;
+  src: local("/src/assets/fonts/Inter-VariableFont_opsz,wght.ttf");
+}
+
+@theme {
+  /* ===== Primary ===== */
+  --color-primary: theme(--color-white);
+  --color-primary-soft: theme(--color-gray-100);
+  --color-primary-strong: theme(--color-gray-200);
+  --color-primary-disabled: theme(--color-gray-300);
+
+  /* ===== Secondary (Orange) ===== */
+  --color-secondary: theme(--color-orange-500);
+  --color-secondary-soft: theme(--color-orange-100);
+  --color-secondary-disabled: theme(--color-orange-300);
+  --color-secondary-strong: theme(--color-orange-600);
+  --color-secondary-active: theme(--color-orange-700);
+
+  /* ===== Accent (Blue) ===== */
+  --color-accent: theme(--color-blue-500);
+  --color-accent-soft: theme(--color-blue-100);
+  --color-accent-strong: theme(--color-blue-600);
+  --color-accent-active: theme(--color-blue-700);
+  --color-accent-disabled: theme(--color-blue-300);
+
+  --background-image-hero: linear-gradient(
+    135deg,
+    hsl(251 100% 21%) 0%,
+    hsl(233 100% 27%) 50%,
+    hsl(251 100% 21%) 100%
+  );
+
+  --background-image-dark-gradient: linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(28, 27, 27, 1) 13%,
+    rgba(0, 0, 0, 0.13) 80%,
+    rgba(255, 255, 255, 0) 100%
+  );
+
+  --font-display: "Inter", sans-serif;
+}
+
+
+body {
+  font-family: var(--font-display);
+  background: var(--color-neutral-50);
+}
+
+button{
+  cursor: pointer;
+}
+
+@layer utilities {
+  .animate-marquee {
+    animation: marquee-scroll 25s linear infinite;
+  }
+}
+
+@utility mask-image-gradient {
+  background: #fafafa;
+  background: linear-gradient(
+    90deg,
+    rgba(250, 250, 250, 1) 0%,
+    rgba(250, 250, 250, 0) 13%,
+    rgba(250, 250, 250, 0) 47%,
+    rgba(250, 250, 250, 0) 88%,
+    rgba(250, 250, 250, 1) 100%
+  );
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
