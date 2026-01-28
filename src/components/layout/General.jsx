@@ -6,7 +6,7 @@ import GlassSection from './GlassSection'
 
 const General = () => {
     return (
-        <div className='relative overflow-hidden'>
+        <div className='relative'>
             <Navbar />
             <Outlet />
             <Footer />

@@ -1,9 +1,9 @@
-import React from 'react'
+import footerImg from '/public/footer.jpg'
 
 const Footer = () => {
   return (
     <footer className='w-full py-8 px-10 bg-black/50 bg-cover bg-center bg-no-repeat bg-blend-multiply' style={{
-      backgroundImage: `url(/public/footer.jpg)`
+      backgroundImage: `url(${footerImg})`
     }} >
       <div className="w-full px-2 text-center text-white py-20 flex flex-col items-center justify-center">
         {/* <p className="text-indigo-500 font-medium">Get updated</p> */}

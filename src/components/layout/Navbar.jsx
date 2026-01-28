@@ -2,6 +2,7 @@ import { Link } from "react-router-dom"
 import { menu } from "src/utils/menu"
 import MobileMenu from "./MobileMenu"
 import useNavbar from "src/hooks/layout/useNavbar"
+import logo from "/public/logo.svg"
 
 const Navbar = () => {
 
@@ -10,7 +11,7 @@ const Navbar = () => {
     return (
         <header className="sticky top-0 z-30 w-full bg-white shadow-lg">
             <nav className="w-full bg-hero">
-                <div className="w-11/12 lg:w-[80%] relative flex items-center justify-between mx-auto py-2 px-4 md:px-0">
+                <div className="w-full lg:w-[80%] relative flex items-center justify-between mx-auto py-2 px-4 md:px-0">
                     <p className="text-primary text-sm lg:text-base">Envíos 08:00 a.m - 07:00 p.m </p>
                     <div className="flex gap-10">
                         <div className="hidden lg:flex items-center">
@@ -41,7 +42,7 @@ const Navbar = () => {
             <div className="w-full bg-white">
                 <nav className="w-11/12 lg:w-[80%] mx-auto flex justify-between items-center py-3 px-4 md:px-0">
                     <Link to={'/'} className="flex items-center">
-                        <img src="/public/logo.svg" alt="Todo terreno logo" className="w-16 md:w-19" />
+                        <img src={logo} alt="Todo terreno logo" className="w-16 md:w-19" />
                     </Link>
                     <div className="flex items-center gap-8">
                         <button className="self-center">

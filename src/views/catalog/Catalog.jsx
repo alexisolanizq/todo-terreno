@@ -1,4 +1,4 @@
-import React from 'react'
+import heroTire from '/public/hero-tire.webp'
 import { Link } from 'react-router-dom'
 import useCatalog from 'src/hooks/layout/useCatalog'
 import { brands } from 'src/utils/brands'
@@ -89,11 +89,11 @@ const Catalog = () => {
                         <div className='flex-1 w-full grid grid-cols-1 lg:grid-cols-3 gap-4'>
                             {
                                 [...brands, ...brands, ...brands].map((item) => (
-                                    <div className='shadow-lg rounded-xl relative transition group'>
+                                    <div key={item} className='shadow-lg rounded-xl relative transition group'>
                                         <Link className="absolute top-4 right-4 transition-opacity duration-300 opacity-0 group-hover:opacity-100 shadow">
                                             <i className='ri-eye-line text-white text-2xl bg-orange-500 rounded-full p-2' />
                                         </Link>
-                                        <img src="/src/assets/images/hero-tire.webp" alt="" className='rounded-t-xl' />
+                                        <img src={heroTire} alt="" className='rounded-t-xl' />
                                         <div className='space-y-1 mx-auto w-11/12 py-4'>
                                             <p className='text-sm text-accent-orange'>Michelin</p>
                                             <p className='font-medium'>Michelin Pilot Sport 5</p>
