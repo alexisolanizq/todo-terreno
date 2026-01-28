@@ -3,7 +3,7 @@ import React from 'react'
 const Footer = () => {
   return (
     <footer className='w-full py-8 px-10 bg-black/50 bg-cover bg-center bg-no-repeat bg-blend-multiply' style={{
-      backgroundImage: `url(/src/assets/images/17116.jpg)`
+      backgroundImage: `url(/public/footer.jpg)`
     }} >
       <div className="w-full px-2 text-center text-white py-20 flex flex-col items-center justify-center">
         {/* <p className="text-indigo-500 font-medium">Get updated</p> */}

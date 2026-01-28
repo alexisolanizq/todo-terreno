@@ -41,7 +41,7 @@ const Navbar = () => {
             <div className="w-full bg-white">
                 <nav className="w-11/12 lg:w-[80%] mx-auto flex justify-between items-center py-3 px-4 md:px-0">
                     <Link to={'/'} className="flex items-center">
-                        <img src="/src/assets/images/logo.svg" alt="Todo terreno logo" className="w-16 md:w-19" />
+                        <img src="/public/logo.svg" alt="Todo terreno logo" className="w-16 md:w-19" />
                     </Link>
                     <div className="flex items-center gap-8">
                         <button className="self-center">

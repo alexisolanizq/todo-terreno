@@ -1,4 +1,5 @@
 import Section from "src/components/layout/Section"
+import heroImage from '/public/hero-tire.webp'
 
 const Hero = () => {
     return (
@@ -26,7 +27,7 @@ const Hero = () => {
                 <div className="hidden lg:block mx-auto">
                     <div className="relative">
                         <div className="absolute inset-bg-linear-to-r from-primary/30 to-secondary-light/30 rounded-full blur-3xl opacity-50" />
-                        <img src="/src/assets/images/hero-tire.webp" alt="hero tire" className="relative z-10 h-full max-w-lg mx-auto rounded-2xl shadow-2xl animate-[float-y_3.8s_ease-in-out_infinite]" />
+                        <img src={heroImage} alt="hero tire" className="relative z-10 h-full max-w-lg mx-auto rounded-2xl shadow-2xl animate-[float-y_3.8s_ease-in-out_infinite]" />
                         <div className="absolute top-5 -left-25 backdrop-blur-sm p-4 rounded-xl shadow-lg flex items-center gap-2 bg-white z-10">
                             <div className="w-10 h-10 rounded-full bg-orange-500 flex items-center justify-center">
                                 <i className="ri-shield-check-line text-primary text-lg" />
