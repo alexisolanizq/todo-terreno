@@ -1,8 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { brands } from "src/utils/brands";
 
-
-const useMarquee = () => {
+const useBrandsCarousel = () => {
 
     const viewportRef = useRef(null);
     const trackRef = useRef(null);
@@ -28,4 +27,4 @@ const useMarquee = () => {
     }
 }
 
-export default useMarquee
+export default useBrandsCarousel

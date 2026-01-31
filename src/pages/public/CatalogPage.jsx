@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import useCatalog from 'src/hooks/layout/useCatalog'
 import { brands } from 'src/utils/brands'
 
-const Catalog = () => {
+const CatalogPage = () => {
 
     const { brandTab, categoryTab, measureTab, setBrandTab, setCategoryTab, setMeasureTab } = useCatalog()
 
@@ -11,8 +11,8 @@ const Catalog = () => {
         <section>
             <div className="bg-hero py-10">
                 <div className="">
-                    <h2 className="text-center capitalize text-white font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">Encuentra La Llanta Perfecta</h2>
-                    <p className="text-center text-lg text-muted ">Búsqueda rápida por medida o marca</p>
+                    <h2 className="text-center capitalize text-primary font-heading text-3xl md:text-4xl font-bold text-foreground">Encuentra La Llanta Perfecta</h2>
+                    <p className="text-primary text-center text-lg text-muted ">Búsqueda rápida por medida o marca</p>
                 </div>
             </div>
             <div className="mx-auto w-[90%] mt-10">
@@ -112,4 +112,4 @@ const Catalog = () => {
     )
 }
 
-export default Catalog
+export default CatalogPage

@@ -1,7 +1,7 @@
 import React from 'react'
 import Section from 'src/components/layout/Section'
 
-const Categories = () => {
+const CategoryCards = () => {
     return (
         <Section title="Explora Por Tipo de Llanta" description='Tenemos la llanta perfecta para cada tipo de manejo y vehículo'>
             
@@ -9,4 +9,4 @@ const Categories = () => {
     )
 }
 
-export default Categories
+export default CategoryCards

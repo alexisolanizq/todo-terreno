@@ -1,8 +1,8 @@
 import Section from "src/components/layout/Section"
-import useMarquee from "src/hooks/brands/useMarquee"
+import useMarquee from "src/features/catalog/hooks/useBrandsCarousel"
 import { brands } from "src/utils/brands"
 
-const Brands = () => {
+const BrandsCarousel = () => {
 
     const { distance, trackRef, viewportRef } = useMarquee()
     return (
@@ -38,7 +38,7 @@ const Brands = () => {
                                 key={item.name}
                                 src={item.url}
                                 alt={item.name}
-                                className="h-10 object-contain filter grayscale opacity-60 transition-all duration-400"
+                                className="h-8 lg:h-10 object-contain filter grayscale opacity-60 transition-all duration-400"
                                 draggable={false}
                             />
                         ))}
@@ -49,4 +49,4 @@ const Brands = () => {
     )
 }
 
-export default Brands
+export default BrandsCarousel

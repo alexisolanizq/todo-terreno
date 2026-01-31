@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom"
 import { menu } from "src/utils/menu"
 import MobileMenu from "./MobileMenu"
-import useNavbar from "src/hooks/layout/useNavbar"
+import useNavbar from "src/components/layout/hooks/useNavbar"
 import logo from "/public/logo.svg"
 
 const Navbar = () => {
@@ -44,7 +44,7 @@ const Navbar = () => {
                     <Link to={'/'} className="flex items-center">
                         <img src={logo} alt="Todo terreno logo" className="w-16 md:w-19" />
                     </Link>
-                    <div className="flex items-center gap-8">
+                    <div className="flex items-center gap-x-2 lg:gap-x-8">
                         <button className="self-center">
                             <i className="ri-user-line text-accent-orange p-2 rounded-full hover:bg-neutral-100 text-3xl" />
                         </button>

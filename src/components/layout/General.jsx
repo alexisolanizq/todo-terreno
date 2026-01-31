@@ -2,7 +2,7 @@ import React from 'react'
 import { Outlet } from 'react-router-dom'
 import Navbar from 'src/components/layout/Navbar'
 import Footer from 'src/components/layout/Footer'
-import GlassSection from './GlassSection'
+import GlassSection from '../ui/GlassSection'
 
 const General = () => {
     return (

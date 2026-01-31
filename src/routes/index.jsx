@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import General from "src/components/layout/General";
-import Catalog from "src/views/catalog/Catalog";
-import Home from "src/views/Home";
+import CatalogPage from "src/pages/public/CatalogPage";
+import HomePage from "src/pages/public/HomePage";
 
 const router = createBrowserRouter([
     {
@@ -10,14 +10,18 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home />,
+                element: <HomePage />,
             },
             {
                 path: '/catalogo',
-                element: <Catalog />,
+                element: <CatalogPage />,
             },
         ]
     },
+    {
+        path: '/admin',
+        // element: 
+    }
 ]);
 
 export default router;

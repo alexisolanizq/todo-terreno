@@ -1,7 +1,7 @@
 import React from 'react'
 import Select from 'src/components/form/Select'
 import Section from 'src/components/layout/Section'
-import useTireSearch from 'src/hooks/tires/useTireSearch'
+import useTireSearch from 'src/features/search/hooks/useTireSearch'
 
 const TireSearch = () => {
 

@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query"
-import { getTireSizesApi } from "../api/tireSizesApi"
+import { getTireSizesApi } from "src/features/catalog/api/getTireSizeList"
 
-const useTireSizes = () => {
+const useTireSearchBySize = () => {
     return useQuery({
         queryKey: ['tire_sizes'],
         queryFn: getTireSizesApi,
@@ -10,4 +10,4 @@ const useTireSizes = () => {
     })
 }
 
-export default useTireSizes
+export default useTireSearchBySize

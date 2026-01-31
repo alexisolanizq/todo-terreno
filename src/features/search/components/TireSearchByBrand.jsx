@@ -1,8 +1,8 @@
 import Form from "src/components/form/Form"
 import Select from "src/components/form/Select"
-import useBrandList from "src/features/shop/hooks/useBrandList"
+import useBrandList from "src/features/catalog/hooks/useBrandList"
 
-const TireBrandForm = () => {
+const TireSearchByBrand = () => {
 
     const { data: brands } = useBrandList()
 
@@ -13,4 +13,4 @@ const TireBrandForm = () => {
     )
 }
 
-export default TireBrandForm
+export default TireSearchByBrand

@@ -1,5 +1,5 @@
 import { useQuery } from '@tanstack/react-query'
-import { getBrandList } from '../api/brandApi'
+import { getBrandList } from 'src/features/catalog/api/getBrandList'
 
 const useBrandList = () => {
     return useQuery({

@@ -4,7 +4,7 @@ import heroImage from '/public/hero-tire.webp'
 const Hero = () => {
     return (
         <Section density="large" className="bg-hero">
-            <div className="grid lg:grid-cols-2 gap-28 items-center w-full lg:w-[90%] mx-auto">
+            <div className="grid lg:grid-cols-2 gap-28 items-center w-full mx-auto">
                 <div className="flex flex-col gap-5 lg:gap-10">
                     <h1 className="capitalize text-primary text-4xl lg:text-6xl font-bold tracking-wide text-center lg:text-start">Las mejores<span className="text-accent-orange"> llantas</span> para tu vehículo
                     </h1>

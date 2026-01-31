@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
-import TireBrandForm from 'src/views/main/TireSearch/components/TireBrandForm';
-import TireSizeForm from 'src/views/main/TireSearch/components/TireSizeForm';
+import TireSearchBySize from 'src/features/search/components/TireSearchBySize';
+import TireSearchByBrand from 'src/features/search/components/TireSearchByBrand';
 
 const useTireSearch = () => {
 
@@ -10,12 +10,12 @@ const useTireSearch = () => {
         {
             id: 'measure',
             label: 'Buscar por medidas',
-            component: <TireSizeForm />
+            component: <TireSearchBySize />
         },
         {
             id: 'brands',
             label: 'Buscar por marcas',
-            component: <TireBrandForm />
+            component: <TireSearchByBrand />
         },
     ]
 

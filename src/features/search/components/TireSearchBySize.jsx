@@ -1,13 +1,12 @@
 import React from 'react'
 import Form from 'src/components/form/Form'
 import Select from 'src/components/form/Select'
-import Button from 'src/components/layout/Button'
-import useTireSizes from 'src/features/shop/hooks/useTireSizes'
+import Button from 'src/components/ui/Button'
+import useTireSearchBySize from 'src/features/catalog/hooks/useTireSearchBySizes'
 
-const TireSizeForm = () => {
+const TireSearchBySize = () => {
 
-    const { data: tireSizes } = useTireSizes()
-
+    const { data: tireSizes } = useTireSearchBySize()
 
     return (
         <Form>
@@ -20,4 +19,4 @@ const TireSizeForm = () => {
     )
 }
 
-export default TireSizeForm
+export default TireSearchBySize
