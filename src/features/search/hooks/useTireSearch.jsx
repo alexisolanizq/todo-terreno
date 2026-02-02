@@ -17,6 +17,11 @@ const useTireSearch = () => {
             label: 'Buscar por marcas',
             component: <TireSearchByBrand />
         },
+        {
+            id: 'model',
+            label: 'Buscar por vehículo',
+            component: <TireSearchByBrand />
+        },
     ]
 
     const activeTabComponent = tabs.find(tab => tab.id === activeTab)

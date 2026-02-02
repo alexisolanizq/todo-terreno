@@ -1,9 +1,11 @@
 import Section from "src/components/layout/Section"
 import heroImage from '/public/hero-tire.webp'
+import GlassEffect from "src/components/layout/GlassEffect"
 
 const Hero = () => {
     return (
-        <Section density="large" className="bg-hero">
+        <Section density="large" className="relative">
+            <GlassEffect />
             <div className="grid lg:grid-cols-2 gap-28 items-center w-full mx-auto">
                 <div className="flex flex-col gap-5 lg:gap-10">
                     <h1 className="capitalize text-primary text-4xl lg:text-6xl font-bold tracking-wide text-center lg:text-start">Las mejores<span className="text-accent-orange"> llantas</span> para tu vehículo

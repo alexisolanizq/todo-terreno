@@ -17,7 +17,7 @@ const CatalogPage = () => {
             </div>
             <div className="mx-auto w-[90%] mt-10">
                 <div className='w-full flex gap-20 flex-col md:flex-row py-6'>
-                    <div className='flex flex-col gap-4'>
+                    <div className='hidden lg:flex flex-col gap-4'>
                         <div>
                             <label htmlFor='search' className='font-medium text-neutral-500'>Buscar</label>
                             <div className='relative'>

@@ -38,7 +38,7 @@ const BrandsCarousel = () => {
                                 key={item.name}
                                 src={item.url}
                                 alt={item.name}
-                                className="h-8 lg:h-10 object-contain filter grayscale opacity-60 transition-all duration-400"
+                                className="h-6 lg:h-10 object-contain filter grayscale opacity-60 transition-all duration-400"
                                 draggable={false}
                             />
                         ))}
