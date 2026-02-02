@@ -46,20 +46,6 @@
   );
 
   --font-display: "Inter", sans-serif;
-
-  [data-theme="dark"] {
-    --color-primary: theme(--color-gray-950);
-    --color-primary-soft: theme(--color-gray-900);
-    --color-primary-strong: theme(--color-gray-800);
-    --color-primary-disabled: theme(--color-gray-700);
-
-    /* Ajustamos los "soft" para que sean fondos oscuros sutiles */
-    --color-secondary-soft: theme(--color-orange-950);
-    --color-accent-soft: theme(--color-blue-900);
-
-    /* Invertimos o ajustamos el gradiente */
-    --background-image-hero: linear-gradient(135deg, #000 0%, #111 100%);
-  }
 }
 
 body {
