@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Section from 'src/components/layout/Section'
-import tractor from 'public/tractor.webp'
-import car from 'public/car.webp'
-import truck from 'public/truck.webp'
+import tractor from '/public/tractor.webp'
+import car from '/public/car.webp'
+import truck from '/public/truck.webp'
 
 
 const CategoryCards = () => {
