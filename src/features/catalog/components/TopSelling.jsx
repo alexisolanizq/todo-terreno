@@ -1,14 +1,26 @@
 import React from 'react'
 import Section from 'src/components/layout/Section'
 import ProductCard from 'src/features/product/components/ProductCard'
+import useTopSelling from '../hooks/useTopSelling'
 
-const FeaturedProducts = ({ products = [1, 2, 3] }) => {
+const TopSelling = () => {
+
+  const { data: topSelling, isLoading } = useTopSelling()
+
+  console.log(topSelling, isLoading);
+
+
   return (
     <Section density='compact' title="Productos Destacados" description='No te pierdas nuestras ofertas' actions={[{ label: 'Ver más' }]}>
       <div className="grid grid-cols-1 lg:grid-cols-3 items-center gap-4">
         {
-          products.map((product) => (
-            <ProductCard product={product} key={product} />
+        isLoading && (
+            'Cargando'
+          )
+        }
+        {
+          topSelling?.map((tire) => (
+            <ProductCard product={tire} key={tire?.id} />
           ))
         }
       </div>
@@ -16,4 +28,4 @@ const FeaturedProducts = ({ products = [1, 2, 3] }) => {
   )
 }
 
-export default FeaturedProducts
+export default TopSelling

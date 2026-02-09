@@ -3,13 +3,15 @@ import { menu } from "src/utils/menu"
 import MobileMenu from "./MobileMenu"
 import useNavbar from "src/components/layout/hooks/useNavbar"
 import logo from "/public/logo.svg"
+import { motion } from 'framer-motion'
 
 const Navbar = () => {
 
     const { visibleMenu, changeVisibility, setTheme, theme } = useNavbar()
 
     return (
-        <header className="sticky top-0 z-30 w-full bg-white shadow-lg">
+        <header
+            className="sticky top-0 z-30 w-full bg-white shadow-lg">
             <nav className="w-full bg-accent-bg">
                 <div className="w-full lg:w-[80%] relative flex items-center justify-between mx-auto py-2 px-4 md:px-0">
                     <p className="text-primary text-xs lg:text-sm">Lun. - Sab. 08:00 a.m - 07:00 p.m </p>
@@ -30,7 +32,21 @@ const Navbar = () => {
                 </div>
             </nav>
             <div className="w-full bg-white">
-                <nav className="w-11/12 lg:w-[80%] mx-auto flex justify-between items-center py-4 lg:py-6">
+                <motion.nav
+                    initial={{
+                        translateY: -50,
+                        opacity: 0
+                    }}
+                    animate={{
+                        translateY: 0,
+                        opacity: 1,
+                    }}
+                    transition={{
+                        delay: 0.3,
+                        duration: .2,
+                    }}
+                    
+                    className="w-11/12 lg:w-[80%] mx-auto flex justify-between items-center py-4 lg:py-6">
                     <Link to={'/'} className="flex items-center">
                         <img src={logo} alt="Todo terreno logo" className="h-4 md:h-5" />
                     </Link>
@@ -62,7 +78,7 @@ const Navbar = () => {
                             </div>
                         </button>
                     </div>
-                </nav>
+                </motion.nav>
             </div>
         </header>
     )
