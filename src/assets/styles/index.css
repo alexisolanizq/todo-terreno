@@ -11,9 +11,9 @@
 @theme {
   /* ===== Primary ===== */
   --color-primary: theme(--color-white);
-  --color-primary-soft: theme(--color-gray-100);
-  --color-primary-strong: theme(--color-gray-200);
-  --color-primary-disabled: theme(--color-gray-300);
+  --color-primary-soft: theme(--color-neutral-100);
+  --color-primary-strong: theme(--color-neutral-200);
+  --color-primary-disabled: theme(--color-neutral-300);
 
   /* ===== Secondary (Orange) ===== */
   --color-secondary: theme(--color-orange-500);
@@ -29,6 +29,14 @@
   --color-accent-active: theme(--color-blue-700);
   --color-accent-disabled: theme(--color-blue-300);
   --color-accent-bg: theme(--color-blue-900);
+
+  /* ==== Admin Colors ==== */
+  --color-admin-background-100: #2f3742;
+  --color-admin-background-200: #313a46;
+  --color-admin-background-300: #2d333c;
+  --color-admin-background-400: #262c34;
+
+  --color-admin-purple: rgb(132 90 223);
 
   --background-image-hero: linear-gradient(
     135deg,
@@ -50,7 +58,7 @@
 
 body {
   font-family: var(--font-display);
-  background: var(--color-neutral-50);
+  background: var(--color-neutral-100);
   overflow-x: hidden;
 }
 
