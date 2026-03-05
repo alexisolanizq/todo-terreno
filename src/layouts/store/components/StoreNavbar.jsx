@@ -67,16 +67,16 @@ const StoreNavbar = () => {
                         <button className="self-center">
                             <i className="ri-user-line text-accent-orange p-2 rounded-full hover:bg-neutral-100 text-2xl lg:text-3xl" />
                         </button>
-                        <button className="flex items-center justify-center gap-4">
+                        <Link to={'carrito'} className="flex items-center justify-center gap-4">
                             <div className="relative">
                                 <i className="ri-shopping-cart-line text-2xl lg:text-3xl text-accent-orange font-medium p-2 lg:p-0" />
-                                <div className="badge absolute -right-1 -top-2 bg-orange-400 rounded-full text-xs font-semibold w-5 h-5 pt-0.5">4</div>
+                                <div className="badge absolute -right-2 -top-2 bg-orange-400 rounded-full text-xs text-center font-semibold w-5 h-5 pt-0.5">4</div>
                             </div>
                             <div className="hidden md:flex flex-col items-start">
                                 <p className="text-muted text-xs">Carrito de compras</p>
                                 <p className="font-semibold text-sm">$438.92</p>
                             </div>
-                        </button>
+                        </Link>
                     </div>
                 </motion.nav>
             </div>

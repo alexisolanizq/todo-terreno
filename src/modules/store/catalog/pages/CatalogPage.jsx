@@ -1,8 +1,12 @@
-import heroTire from '/public/hero-tire.webp'
 import { Link } from 'react-router-dom'
+import Section from 'src/components/sotre-ui/Section'
 import useCatalog from 'src/modules/store/catalog/hooks/useCatalog'
+import DropdownMenu from 'src/shared/components/ui/DropdownMenu'
+import Skeleton from 'src/shared/components/ui/Skeleton'
 import { brands } from 'src/utils/brands'
 import { formatString } from 'src/utils/format'
+import ProductCard from '../../home/components/ProductCard'
+import TextField from 'src/shared/components/form/TextField'
 
 const CatalogPage = () => {
 
@@ -13,11 +17,12 @@ const CatalogPage = () => {
         setBrandTab,
         setCategoryTab,
         setMeasureTab,
-        tires
+        tires,
+        isLoading
     } = useCatalog()
 
     return (
-        <section>
+        <Section density='none'>
             <div className="bg-hero py-10">
                 <div className="">
                     <h2 className="text-center capitalize text-primary font-heading text-3xl md:text-4xl font-bold text-foreground">Encuentra La Llanta Perfecta</h2>
@@ -25,97 +30,59 @@ const CatalogPage = () => {
                 </div>
             </div>
             <div className="mx-auto w-[90%] mt-10">
-                <div className='w-full flex gap-20 flex-col md:flex-row py-6'>
-                    <div className='hidden lg:flex flex-col gap-4'>
-                        <div>
-                            <label htmlFor='search' className='font-medium text-neutral-500'>Buscar</label>
-                            <div className='relative'>
-                                <i className="absolute ri-search-line text-xl top-1/2 -translate-y-1/2 left-3 text-neutral-400" />
-                                <input type="text" id='search' name='search' className='bg-primary pl-10 py-3 rounded-lg text-neutral-500 outline-neutral-300' />
-                            </div>
-                        </div>
-                        <div className='rounded-lg p-3 bg-primary'>
-                            <button className='w-full flex items-center justify-between text-neutral-600' onClick={() => setBrandTab(!brandTab)}>
-                                <p className=''>Marcas</p>
+                <div className='w-full flex gap-10 lg:gap-20 flex-col md:flex-row py-6'>
+                    <div className='flex flex-col gap-4'>
+                        <TextField name='seach' />
+                        <DropdownMenu
+                            placeholder='Ancho'
+                            isActive={measureTab}
+                            onClick={setMeasureTab}
+                        />
+                        <DropdownMenu
+                            placeholder='Perfil'
+                            isActive={measureTab}
+                            onClick={setMeasureTab}
+                        />
+                        <DropdownMenu
+                            placeholder='Rin'
+                            isActive={measureTab}
+                            onClick={setMeasureTab}
+                        />
+                        <DropdownMenu
+                            placeholder='Marcas'
+                            isActive={brandTab}
+                            onClick={setBrandTab}
+                        />
+                        <DropdownMenu
+                            placeholder='Categorías'
+                            isActive={categoryTab}
+                            onClick={setCategoryTab}
+                        />
+                    </div>
+                    <div className='flex flex-col gap-4 w-full'>
+                        <div className='flex justify-between items-center'>
+                            <p className='text-sm font-semibold'>{tires?.length} <span className='font-normal'>productos encontrados</span></p>
+                            <button className='flex items-center justify-center gap-x-2 px-4 py-1 rounded-lg bg-primary'>
+                                <i className='ri-arrow-up-down-fill' />
+                                <p>Mayor precio</p>
                                 <i className={`ri-arrow-down-s-line text-xl transition-transform duration-300 ease-in-out ${brandTab ? "rotate-180" : "rotate-0"
                                     }`} />
                             </button>
-                            <div className='space-y-2'>
-                                {
-                                    brandTab && brands.map((brand) => (
-                                        <div key={brand.id} className='hover:bg-neutral-200/70 rounded-lg px-4 py-1'>
-                                            {brand.name}
-                                        </div>
-                                    ))
-                                }
-                            </div>
-                        </div>
-                        <div className='rounded-lg p-3 bg-primary'>
-                            <button className='w-full flex items-center justify-between text-neutral-600' onClick={() => setCategoryTab(!categoryTab)}>
-                                <p className=''>Categorías</p>
-                                <i className={`ri-arrow-down-s-line text-xl transition-transform duration-300 ease-in-out ${categoryTab ? "rotate-180" : "rotate-0"
-                                    }`} />
-                            </button>
-                            <div className='space-y-2'>
-                                {
-                                    categoryTab && brands.map((brand) => (
-                                        <div key={brand.id} className='hover:bg-neutral-200/70 rounded-lg px-4 py-1'>
-                                            {brand.name}
-                                        </div>
-                                    ))
-                                }
-                            </div>
-                        </div>
-                        <div className='rounded-lg p-3 bg-primary'>
-                            <button className='w-full flex items-center justify-between text-neutral-600' onClick={() => setMeasureTab(!measureTab)}>
-                                <p className=''>Medidas</p>
-                                <i className={`ri-arrow-down-s-line text-xl transition-transform duration-300 ease-in-out ${measureTab ? "rotate-180" : "rotate-0"
-                                    }`} />
-                            </button>
-                            <div className='space-y-2'>
-                                {
-                                    measureTab && brands.map((brand) => (
-                                        <div key={brand.id} className='hover:bg-neutral-200/70 rounded-lg px-4 py-1'>
-                                            {brand.name}
-                                        </div>
-                                    ))
-                                }
-                            </div>
-                        </div>
-                    </div>
-                    <div className='flex flex-col gap-4'>
-                        <div className='flex justify-between items-center'>
-                            <p className='text-sm font-semibold'>12 <span className='font-normal'>productos encontrados</span></p>
-                            <div>
-                                <button className='flex items-center justify-center gap-x-2 px-4 py-1 rounded-lg bg-primary'>
-                                    <i className='ri-arrow-up-down-fill' />
-                                    <p>Mayor precio</p>
-                                    <i className={`ri-arrow-down-s-line text-xl transition-transform duration-300 ease-in-out ${brandTab ? "rotate-180" : "rotate-0"
-                                        }`} />
-                                </button>
-                            </div>
                         </div>
                         <div className='flex-1 w-full grid grid-cols-1 lg:grid-cols-4 gap-4'>
                             {
-                                tires?.map((item) => (
-                                    <div key={item?.id} className='rounded-xl relative transition bg-primary'>
-                                        <Link to={`/${item?.slug}`} className='w-full'>
-                                            <img src="https://llantastogo.com/images/models/medium/contipowercontact-84h-185-60R15.webp" alt="" className='rounded-t-xl pt-4 w-1/2 mx-auto' />
-                                        </Link>
-                                        <div className='flex flex-col gap-y-2 mx-auto w-11/12 py-4'>
-                                            <p className='text-sm text-secondary'>{item?.brand?.name}</p>
-                                            <p className='text-lg font-medium'>{formatString(item?.size?.label)}</p>
-                                            <Link to={`/${item?.slug}`} className='text-sm font-medium'>{item?.model_name}</Link>
-                                            <p className='font-semibold text-lg'>${item?.price} <span className='text-muted text-xs font-normal uppercase'>mxn</span></p>
-                                        </div>
-                                    </div>
-                                ))
+                                isLoading ? Array.from({ length: 4 }).map((_, i) =>
+                                    <Skeleton key={i} />
+                                ) :
+                                    tires?.map((item) => (
+                                        <ProductCard key={item.id} product={item} />
+                                    ))
                             }
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
+        </Section>
     )
 }
 

@@ -7,11 +7,12 @@ const useCatalog = () => {
     const [brandTab, setBrandTab] = useState(false)
     const [measureTab, setMeasureTab] = useState(true)
 
-    const { data: tires } = useFetchTiresQuery()
+    const { data: tires, isLoading } = useFetchTiresQuery()
 
     return {
         tires,
         brandTab,
+        isLoading,
         measureTab,
         setBrandTab,
         categoryTab,

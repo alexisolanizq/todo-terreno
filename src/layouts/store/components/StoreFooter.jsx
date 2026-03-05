@@ -9,7 +9,7 @@ const StoreFooter = () => {
         {/* <p className="text-indigo-500 font-medium">Get updated</p> */}
         <h1 className="max-w-lg font-semibold text-4xl/[44px] mt-2">Si necesitas atención personalizada, escribenos.</h1>
         <div className="flex items-center justify-center mt-10 border-2 focus-within:outline focus-within:outline-primary text-sm rounded-full h-14 max-w-md w-full">
-          <input type="text" className="flex-1 bg-transparent outline-none rounded-full px-4 h-full" placeholder="Agrega tu correo" />
+          <input id='input' type="text" className="flex-1 bg-transparent outline-none rounded-full px-4 h-full" placeholder="Agrega tu correo" />
           <button className="bg-secondary text-white rounded-full text-sm h-11 mr-1 px-8 flex items-center justify-center">
             Escribenos
           </button>

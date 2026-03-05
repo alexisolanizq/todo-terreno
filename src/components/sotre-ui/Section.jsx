@@ -2,6 +2,7 @@
 const Section = ({ children, className = '', density = "normal", title = false, description = '', actions = [] }) => {
 
     const verticalPadding = {
+        none: 'p-0',
         xsmall: 'py-5',
         compact: 'py-10',
         normal: 'py-20',
@@ -12,7 +13,7 @@ const Section = ({ children, className = '', density = "normal", title = false, 
 
     return (
         <div className={`w-full ${padding} ${className}`}>
-            <div className="w-full lg:w-[80%] mx-auto flex flex-col justify-start px-4 md:px-6">
+            <div className={`w-full ${density === 'none' ? 'w-full' : 'lg:w-[80%]'} mx-auto flex flex-col justify-start`}>
                 {
                     title && (
                         <div className="flex flex-col lg:flex-row items-start justify-between lg:items-center gap-2 mb-10">
