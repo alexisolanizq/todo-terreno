@@ -7,6 +7,8 @@ import TopSelling from "src/modules/store/home/components/TopSelling"
 
 const HomePage = () => {
 
+  
+
   return (
     <>
       <Hero />

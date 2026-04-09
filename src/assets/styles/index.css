@@ -85,17 +85,29 @@ button {
       rgba(0, 41, 166, 1) 100%
     );
   }
+  
+  .full-login-image {
+    background: url("/public/16784.webp");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
 }
 
 @utility mask-image-gradient {
-  background: #fafafa;
-  background: linear-gradient(
-    90deg,
-    rgba(250, 250, 250, 1) 0%,
-    rgba(250, 250, 250, 0) 13%,
-    rgba(250, 250, 250, 0) 47%,
-    rgba(250, 250, 250, 0) 88%,
-    rgba(250, 250, 250, 1) 100%
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    black 15%,
+    black 85%,
+    transparent 100%
   );
 }
 

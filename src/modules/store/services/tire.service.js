@@ -1,8 +1,20 @@
 import api from "src/services/axios";
 
 const tireService = {
-  getAll() {
-    return api.get("/tires");
+  getAll: async (filters) => {
+    const params = {};
+
+    Object.entries(filters || {}).forEach(([key, value]) => {
+      if (!value || value.length === 0) return;
+      params[key] = Array.isArray(value) ? value.join(",") : value;
+    });
+
+    console.log("PARAMS 👉", params); // 👈 DEBUG
+
+    const { data } = await api.get("/tires", {
+      params,
+    });
+    return data;
   },
   getBySlug(slug) {
     return api.get(`tires/${slug}`);

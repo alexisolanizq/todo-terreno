@@ -1,6 +1,6 @@
 import React from 'react'
 import Select from 'src/shared/components/form/Select'
-import Section from 'src/components/sotre-ui/Section'
+import Section from 'src/components/store-ui/Section'
 import useTireSearch from 'src/modules/store/hooks/useTireSearch'
 
 const TireSearch = () => {
@@ -8,7 +8,7 @@ const TireSearch = () => {
     const { tabs, activeTabComponent, setActiveTab, activeTab } = useTireSearch()
 
     return (
-        <Section className='relative z-10' density='xsmall'>
+        <Section className='relative z-10' densityY='xsmall'>
             <div className="relative mx-auto w-[90%] lg:w-4/6 bg-white shadow-xl p-8 -top-20 rounded-2xl">
                 <div className="mb-8">
                     <h2 className="text-center capitalize font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">Encuentra La Llanta Perfecta</h2>

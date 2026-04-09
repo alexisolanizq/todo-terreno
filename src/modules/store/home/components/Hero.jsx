@@ -1,11 +1,11 @@
-import Section from "src/components/sotre-ui/Section"
+import Section from "src/components/store-ui/Section"
 import heroImage from '/public/hero-tire.webp'
 import GlassEffect from "src/modules/store/home/components/GlassEffect"
 import { motion } from 'framer-motion'
 
 const Hero = () => {
     return (
-        <Section density="large" className="relative">
+        <Section densityY="large" className="relative">
             <GlassEffect />
             <div className="grid lg:grid-cols-2 gap-28 items-center w-full mx-auto">
                 <motion.div

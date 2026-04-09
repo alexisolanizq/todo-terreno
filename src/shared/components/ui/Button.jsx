@@ -13,7 +13,7 @@ const Button = ({
         outline: "border-2 border-gray-200 text-gray-700 hover:border-orange-500 hover:text-orange-500 bg-transparent",
     };
     const sizes = {
-        normal: "px-6 py-3 text-sm",
+        normal: "px-6 py-2.5 text-sm",
         large: "px-8 py-4 text-base",
         compact: "px-4 py-2 text-xs"
     };

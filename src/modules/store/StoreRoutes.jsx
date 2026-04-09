@@ -20,7 +20,6 @@ const StoreRoutes = [
     {
         path: '/:slug',
         element: <TireDetailsPage />
-
     }
 ]
 

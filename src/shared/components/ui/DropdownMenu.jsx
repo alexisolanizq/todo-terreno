@@ -1,29 +1,67 @@
 import React from 'react'
 
 const DropdownMenu = ({
-    onClick = () => { },
+    onClick = () => {},
+    onSelect = () => {},
     items = [],
     isActive = false,
     placeholder = "",
+    value = [],
     keyValue = 'id',
     keyLabel = 'title',
 }) => {
+
+    const safeValue = Array.isArray(value) ? value : []
+
+    const isSelected = (val) => safeValue.includes(val)
+
+    const toggleItem = (val) => {
+        if (safeValue.includes(val)) {
+            onSelect(safeValue.filter(v => v !== val))
+        } else {
+            onSelect([...safeValue, val])
+        }
+    }
+
     return (
         <div className='rounded-lg p-3 bg-primary shadow-sm'>
-            <button className='w-full flex items-center justify-between text-neutral-600' onClick={() => onClick(!isActive)}>
-                <p className=''>{placeholder}</p>
-                <i className={`ri-arrow-down-s-line text-xl transition-transform duration-300 ease-in-out ${isActive ? "rotate-180" : "rotate-0"
-                    }`} />
+            <button
+                type="button"
+                className='w-full flex items-center justify-between text-neutral-600'
+                onClick={() => onClick(!isActive)}
+            >
+                <p className='truncate'>
+                    {safeValue.length
+                        ? `${safeValue.length} seleccionados`
+                        : placeholder}
+                </p>
+
+                <i className={`ri-arrow-down-s-line text-xl transition ${isActive ? "rotate-180" : ""}`} />
             </button>
-            <div className='space-y-2'>
-                {
-                    isActive && items.map((item) => (
-                        <div key={item[keyValue]} className='hover:bg-neutral-200/70 rounded-lg px-4 py-1'>
-                            {item[keyLabel]}
-                        </div>
-                    ))
-                }
-            </div>
+
+            {isActive && (
+                <div className='space-y-2 mt-2 max-h-60 overflow-auto'>
+                    {items.map((item) => {
+                        const val = item[keyValue]
+
+                        return (
+                            <div
+                                key={val}
+                                className={`flex items-center gap-2 px-3 py-2 rounded-lg cursor-pointer 
+                                ${isSelected(val) ? "bg-blue-100" : "hover:bg-neutral-200/70"}`}
+                                onClick={() => toggleItem(val)}
+                            >
+                                <input
+                                    type="checkbox"
+                                    checked={isSelected(val)}
+                                    readOnly
+                                />
+                                <span>{item[keyLabel]}</span>
+                            </div>
+                        )
+                    })}
+                </div>
+            )}
         </div>
     )
 }

@@ -1,17 +1,19 @@
 import { Link } from "react-router-dom"
+import tire_webp from '/public/barum-bravuris-5.webp'
+import { formatPrice, formatString } from "src/utils/format"
 
-const ProductCard = ({ product, onBuy, onToggleFavorite, hideFooter = false, ...props }) => {
+const ProductCard = ({ product, onBuy, isAdding, onToggleFavorite, hideFooter = false, ...props }) => {
     return (
-        <div className="bg-primary w-full px-6 py-4 shadow rounded-2xl flex flex-col items-start group flex-1">
+        <div className="bg-primary w-full px-6 py-4 shadow rounded-2xl flex flex-col items-start group flex-none">
             <Link to={`/${product?.slug}`} className='self-center'>
-                <img src="https://llantastogo.com/images/models/medium/contipowercontact-84h-185-60R15.webp" className='w-38 group-hover:scale-110 group-hover:-rotate-6 transition-transform' alt="Tire" />
+                <img src={tire_webp} className='w-38 group-hover:scale-105 group-hover:-rotate-6 transition-transform' alt="Tire" />
             </Link>
             <div className='flex flex-col gap-y-2 w-full mb-3'>
                 <p className='text-sm text-secondary'>{product?.brand?.name}</p>
-                <Link to={product?.slug} className='text-lg'>{product?.model_name}</Link>
-                <p className='text-neutral-700 text-sm'>{product?.size?.label}</p>
+                <Link to={`/${product?.slug}`} className='text-lg'>{product?.model_name}</Link>
+                <p className='text-neutral-700 text-sm'>{formatString(product?.size?.label)}</p>
                 <div className="flex items-center gap-x-2">
-                    <h2 className='text-lg font-semibold'>${product?.price}</h2>
+                    <h2 className='text-lg font-semibold'>{formatPrice(product?.price)}</h2>
                     <p className='text-secondary text-xs'>{product.stock <= 5 && "(Pocas piezas)"}</p>
                 </div>
             </div>
@@ -21,7 +23,7 @@ const ProductCard = ({ product, onBuy, onToggleFavorite, hideFooter = false, ...
                         <button onClick={onToggleFavorite} className="rounded-full bg-primary-soft outline-1 outline-primary-strong hover:bg-primary-strong w-10 h-10">
                             <i className='ri-heart-line font-medium text-xl' />
                         </button>
-                        <button className="flex flex-1 items-center justify-center gap-4 rounded-full bg-secondary text-primary hover:bg-secondary-strong w-10 h-10" onClick={onBuy}>
+                        <button className="flex flex-1 items-center justify-center gap-4 rounded-full bg-secondary text-primary hover:bg-secondary-strong w-10 h-10" onClick={onBuy} disabled={isAdding}>
                             <i className='ri-shopping-cart-line font-medium text-lg' />
                             <p>Agregar</p>
                         </button>

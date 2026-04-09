@@ -1,4 +1,4 @@
-import { createCartSlice } from "src/features/cart/store/createCartSlice";
+import { createCartSlice } from "src/store/createCartSlice";
 import { create } from "zustand";
 import { devtools, persist } from "zustand/middleware";
 

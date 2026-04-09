@@ -24,3 +24,15 @@ export const formatString = (text) => {
 
   return `${formattedNumber}/${restOfText}`;
 };
+
+export const formatPrice = (amount) => {
+  return new Intl.NumberFormat("en-US", {
+    style: "currency",
+    currency: "USD",
+  }).format(amount);
+};
+
+export const parseArrayParam = (param) => {
+  if (!param) return [];
+  return param.split(",").filter(Boolean);
+};

@@ -1,11 +1,13 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
 
-
 export const useFetchQuery = ({
     queryKey,
     queryFn,
     enabled = true,
-    options = {}
+    options = {
+        retry: 1,
+        refetchOnWindowFocus: false
+    }
 }) => useQuery({
     enabled,
     queryKey,
@@ -13,7 +15,6 @@ export const useFetchQuery = ({
     staleTime: 1000 * 60 * 5,
     ...options
 })
-
 
 export const useMutationQuery = ({
     mutationFn,
@@ -23,18 +24,20 @@ export const useMutationQuery = ({
     options = {}
 }) => {
     const queryClient = useQueryClient()
-
     return useMutation({
         mutationFn,
         onSuccess: (data, variables, context) => {
+            console.log("Invalidando:", invalidateKeys)
             invalidateKeys.forEach(key => {
-                queryClient.invalidateQueries(key)
+                queryClient.invalidateQueries({
+                    queryKey: Array.isArray(key) ? key : [key]
+                })
             })
             if (onSuccess) {
                 onSuccess(data, variables, context)
             }
-
         },
+        onError,
         ...options
     })
 }

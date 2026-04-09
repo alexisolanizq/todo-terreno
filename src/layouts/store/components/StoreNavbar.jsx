@@ -4,10 +4,19 @@ import StoreMobileMenu from "./StoreMobileMenu"
 import useNavbar from "src/shared/hooks/useNavbar"
 import logo from "/public/logo.svg"
 import { motion } from 'framer-motion'
+import { formatPrice } from "src/utils/format"
 
 const StoreNavbar = () => {
 
-    const { visibleMenu, changeVisibility, setTheme, theme } = useNavbar()
+    const {
+        visibleMenu,
+        linkTo,
+        changeVisibility,
+        setTheme,
+        theme,
+        cart,
+        location
+    } = useNavbar()
 
     return (
         <header
@@ -26,7 +35,7 @@ const StoreNavbar = () => {
                             <button onClick={changeVisibility} className="block lg:hidden cursor-pointer">
                                 <i className="ri-menu-3-fill text-2xl text-white" />
                             </button>
-                            <StoreMobileMenu visible={visibleMenu} />
+                            <StoreMobileMenu link={linkTo} visible={visibleMenu} />
                         </div>
                     </div>
                 </div>
@@ -54,7 +63,7 @@ const StoreNavbar = () => {
                         <ul className="flex gap-x-12 items-center">
                             {
                                 menu.map((item) => (
-                                    <li className="first:bg-orange-500 first:text-primary first:py-1 first:px-4 first:rounded-4xl font-medium text-black self-center" key={item.id}>
+                                    <li className={`${location.pathname === item.to && 'bg-orange-500 text-primary py-1 px-4 rounded-4xl'} font-medium self-center`} key={item.id}>
                                         <Link to={item.to}>
                                             {item.name}
                                         </Link>
@@ -64,17 +73,19 @@ const StoreNavbar = () => {
                         </ul>
                     </div>
                     <div className="flex items-center gap-x-2 lg:gap-x-4">
-                        <button className="self-center">
-                            <i className="ri-user-line text-accent-orange p-2 rounded-full hover:bg-neutral-100 text-2xl lg:text-3xl" />
-                        </button>
+                        <Link to="login" className="self-center">
+                            {
+                                <i className="ri-user-line text-accent-orange p-1 rounded-full hover:bg-neutral-100 text-2xl lg:text-3xl" />
+                            }
+                        </Link>
                         <Link to={'carrito'} className="flex items-center justify-center gap-4">
                             <div className="relative">
                                 <i className="ri-shopping-cart-line text-2xl lg:text-3xl text-accent-orange font-medium p-2 lg:p-0" />
-                                <div className="badge absolute -right-2 -top-2 bg-orange-400 rounded-full text-xs text-center font-semibold w-5 h-5 pt-0.5">4</div>
+                                <div className="absolute -right-2 -top-2 bg-orange-400 rounded-full text-xs text-center font-semibold w-5 h-5 pt-0.5">{cart?.total_items ?? 0}</div>
                             </div>
                             <div className="hidden md:flex flex-col items-start">
                                 <p className="text-muted text-xs">Carrito de compras</p>
-                                <p className="font-semibold text-sm">$438.92</p>
+                                <p className="font-semibold text-sm">{formatPrice(cart?.total)}</p>
                             </div>
                         </Link>
                     </div>

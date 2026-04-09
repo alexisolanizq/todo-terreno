@@ -7,13 +7,10 @@ export const tiresKeys = {
   detail: (slug) => ["tires", slug],
 };
 
-export const useFetchTiresQuery = () => {
+export const useFetchTiresQuery = (filtersParams) => {
   return useFetchQuery({
-    queryKey: tiresKeys.all,
-    queryFn: async () => {
-      const data = await tireService.getAll();
-      return data?.data;
-    },
+    queryKey: ["tires", filtersParams],
+    queryFn: () => tireService.getAll(filtersParams),
   });
 };
 

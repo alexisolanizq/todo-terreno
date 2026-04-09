@@ -1,5 +1,5 @@
 
-const Section = ({ children, className = '', density = "normal", title = false, description = '', actions = [] }) => {
+const Section = ({ children, className = '', densityY = "normal", densityX = "xsmall", title = false, description = '', actions = [] }) => {
 
     const verticalPadding = {
         none: 'p-0',
@@ -9,11 +9,20 @@ const Section = ({ children, className = '', density = "normal", title = false, 
         large: 'py-34'
     }
 
-    const padding = verticalPadding[density] || verticalPadding['normal']
+    const horizontalPadding = {
+        none: 'p-0',
+        xsmall: 'px-5',
+        compact: 'px-10',
+        normal: 'px-20',
+        large: 'px-34'
+    }
+
+    const paddingY = verticalPadding[densityY] || verticalPadding['normal']
+    const paddingX = horizontalPadding[densityX] || horizontalPadding['normal']
 
     return (
-        <div className={`w-full ${padding} ${className}`}>
-            <div className={`w-full ${density === 'none' ? 'w-full' : 'lg:w-[80%]'} mx-auto flex flex-col justify-start`}>
+        <div className={`w-full ${paddingY} ${className}`}>
+            <div className={`w-full ${densityY === 'none' ? 'w-full' : 'lg:w-[80%]'} mx-auto flex flex-col justify-start ${paddingX}`}>
                 {
                     title && (
                         <div className="flex flex-col lg:flex-row items-start justify-between lg:items-center gap-2 mb-10">

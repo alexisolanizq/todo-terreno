@@ -1,19 +1,39 @@
 import React from 'react'
+import useQuantity from '../hooks/useQuantity'
 
 const QuantityCart = ({
-    hideLabel = false
+    quantity,
+    onChange = () => { },
+    min = 1,
+    max = 8,
+    hideLabel = false,
+    className = ''
 }) => {
+
+    const {
+        quantity: qty,
+        increment,
+        decrement,
+        isMin,
+        isMax,
+    } = useQuantity({
+        value: quantity,
+        onChange,
+        min,
+        max,
+    });
+
     return (
-        <div className='flex flex-col gap-2'>
+        <div className={`flex flex-col gap-2`}>
             {
                 !hideLabel && (
                     <p>Cantidad:</p>
                 )
             }
-            <div className='flex items-center w-fit rounded-xl outline-1 outline-primary-strong overflow-hidden font-medium'>
-                <button className='w-10 h-10 hover:bg-neutral-100'>-</button>
-                <span className='w-10 h-10 flex items-center justify-center'>6</span>
-                <button className='w-10 h-10 hover:bg-neutral-100'>+</button>
+            <div className={`flex items-center w-fit rounded-xl outline-1 outline-primary-strong overflow-hidden font-medium bg-white`}>
+                <button onClick={decrement} disabled={isMin} className='w-10 h-10 text-2xl'>-</button>
+                <span className='w-10 h-10 flex items-center justify-center'>{qty}</span>
+                <button onClick={increment} disabled={isMax} className='w-10 h-10 text-xl'>+</button>
             </div>
         </div>
     )
