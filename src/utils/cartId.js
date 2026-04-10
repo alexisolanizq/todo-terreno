@@ -1,10 +1,23 @@
 export const getCartId = () => {
-  let cartId = localStorage.getItem("cart_id");
+  try {
+    let cartId = localStorage.getItem("cart_id");
 
-  if (!cartId) {
-    cartId = crypto.randomUUID()
-    localStorage.setItem("cart_id", cartId);
+    if (!cartId) {
+      cartId =
+        typeof crypto !== "undefined" && crypto.randomUUID
+          ? crypto.randomUUID()
+          : generateFallbackId();
+
+      localStorage.setItem("cart_id", cartId);
+    }
+
+    return cartId;
+  } catch (e) {
+    console.warn("getCartId error:", e);
+    return null;
   }
+};
 
-  return cartId;
+const generateFallbackId = () => {
+  return "cart_" + Math.random().toString(36).substring(2) + Date.now();
 };

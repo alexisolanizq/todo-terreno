@@ -12,11 +12,20 @@ const api = axios.create({
 });
 
 api.interceptors.request.use((config) => {
-  const token = localStorage.getItem("token");
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
+  try {
+    const token = localStorage.getItem("token");
+
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+
+    const cartId = getCartId();
+    if (cartId) {
+      config.headers["X-Cart-Id"] = cartId;
+    }
+  } catch (e) {
+    console.warn("Interceptor error:", e);
   }
-  config.headers["X-Cart-Id"] = getCartId();
   return config;
 });
 
