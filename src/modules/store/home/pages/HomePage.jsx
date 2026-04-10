@@ -7,7 +7,7 @@ import TopSelling from "src/modules/store/home/components/TopSelling"
 
 const HomePage = () => {
 
-  
+  console.log("API URL:", import.meta.env.VITE_API_URL);
 
   return (
     <>
