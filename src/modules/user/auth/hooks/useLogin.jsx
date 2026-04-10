@@ -8,15 +8,15 @@ const useLogin = () => {
     const loginQuery = useLoginQuery()
 
     const loginGoogle = () => {
-        window.location.href = "http://localhost/api/auth/google"
+        window.location.href = `${import.meta.env.VITE_API_URL}/auth/google`
     }
 
     const loginFacebook = () => {
-        window.location.href = "http://localhost/api/auth/facebook"
+        window.location.href = `${import.meta.env.VITE_API_URL}/auth/facebook`
     }
 
     const loginApple = () => {
-        window.location.href = "http://localhost/api/auth/apple"
+        window.location.href = `${import.meta.env.VITE_API_URL}/auth/apple`
     }
 
     const onSubmit = async (data) => {
