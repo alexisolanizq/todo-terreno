@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react"
 import { useAddToCartQuery } from "../../cart/queries/cart.query"
 import { useForm, useWatch } from "react-hook-form"
-import { useCatalogTireSizesQuery, useTireCatalogQuery } from "../queries/catalog.query"
+import { useCatalogBrandsQuery, useCatalogTireSizesQuery, useTireCatalogQuery } from "../queries/catalog.query"
 import { useSearchParams } from "react-router-dom"
 import { parseArrayParam } from "src/utils/format"
 
@@ -56,6 +56,7 @@ const useCatalog = () => {
     const { data, isLoading } = useTireCatalogQuery(filters)
 
     const { data: tireSizes, isLoading: isLoadingTireSizes } = useCatalogTireSizesQuery()
+    const { data: brands, isLoading: isLoadingBrands } = useCatalogBrandsQuery()
 
     const addToCartMutation = useAddToCartQuery()
 
@@ -73,6 +74,8 @@ const useCatalog = () => {
         filters,
         isLoadingTireSizes,
         tireSizes,
+        brands,
+        isLoadingBrands,
 
         data,
         brandTab,

@@ -16,3 +16,10 @@ export const useCatalogTireSizesQuery = () => {
     queryFn: () => catalogService.getTireSizes(),
   });
 };
+
+export const useCatalogBrandsQuery = () => {
+  return useFetchQuery({
+    queryKey: ["brands"],
+    queryFn: () => catalogService.getBrands(),
+  });
+};

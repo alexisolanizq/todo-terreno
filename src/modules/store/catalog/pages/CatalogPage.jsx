@@ -24,6 +24,8 @@ const CatalogPage = () => {
         filters,
         isLoadingTireSizes,
         tireSizes,
+        isLoadingBrands,
+        brands,
 
         rimDiameterTab, setRimDiameterTab,
         profileTab, setProfileTab,
@@ -65,10 +67,15 @@ const CatalogPage = () => {
                                 isActive={rimDiameterTab}
                                 onToggle={setRimDiameterTab}
                             />
-                            <DropdownMenu
+                            <DropdownController
+                                keyLabel='name'
+                                keyValue='slug'
+                                control={control}
+                                name="brand"
+                                items={brands}
                                 placeholder='Marcas'
                                 isActive={brandTab}
-                                onClick={setBrandTab}
+                                onToggle={setBrandTab}
                             />
                             <DropdownMenu
                                 placeholder='Categorías'

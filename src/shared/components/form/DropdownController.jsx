@@ -8,6 +8,8 @@ const DropdownController = ({
     placeholder = "",
     isActive,
     onToggle,
+    keyValue = 'id',
+    keyLabel = 'title',
     defaultValue = [],
 }) => {
     return (
@@ -17,6 +19,8 @@ const DropdownController = ({
             defaultValue={defaultValue}
             render={({ field }) => (
                 <DropdownMenu
+                    keyLabel={keyLabel}
+                    keyValue={keyValue}
                     items={items}
                     placeholder={placeholder}
                     isActive={isActive}

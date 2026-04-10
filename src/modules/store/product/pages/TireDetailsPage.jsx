@@ -66,7 +66,7 @@ const ProductDetailPage = () => {
         </div>
       </div>
       <Flex className='mt-14'>
-        <RelatedModels items={related} />
+        <RelatedModels className='' items={related} />
       </Flex>
     </Section>
   )

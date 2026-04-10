@@ -4,7 +4,7 @@ import { formatPrice, formatString } from "src/utils/format"
 
 const ProductCard = ({ product, onBuy, isAdding, onToggleFavorite, hideFooter = false, ...props }) => {
     return (
-        <div className="bg-primary w-full px-6 py-4 shadow rounded-2xl flex flex-col items-start group flex-none">
+        <div className="bg-primary w-full px-6 py-4 shadow rounded-2xl flex flex-col items-start group">
             <Link to={`/${product?.slug}`} className='self-center'>
                 <img src={tire_webp} className='w-38 group-hover:scale-105 group-hover:-rotate-6 transition-transform' alt="Tire" />
             </Link>

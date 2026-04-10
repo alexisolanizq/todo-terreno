@@ -1,6 +1,7 @@
 import { useNavigate } from "react-router-dom"
 import { useTireSearchBySize } from "../queries/useTireSearchQuery"
 import { useForm } from "react-hook-form"
+import { useBrandQuery } from "../../queries/brand.query"
 
 const useTireSearch = () => {
 
@@ -8,6 +9,7 @@ const useTireSearch = () => {
   const { handleSubmit, control } = useForm()
 
   const { data: tireSizes } = useTireSearchBySize()
+  const { data: brands } = useBrandQuery()
 
   const onSubmit = (payload) => {
 
@@ -27,6 +29,10 @@ const useTireSearch = () => {
       params.append("rim", payload.rim_diameter)
     }
 
+    if (payload.brand) {
+      params.append("brand", payload.brand)
+    }
+
     console.log(params);
 
 
@@ -34,6 +40,7 @@ const useTireSearch = () => {
   }
 
   return {
+    brands,
     control,
     onSubmit,
     tireSizes,
