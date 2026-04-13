@@ -1,17 +1,14 @@
 import React from 'react'
-import { useParams } from 'react-router-dom'
-import truck from '/public/truck.webp'
-import Section from 'src/components/store-ui/Section'
-import Select from 'src/shared/components/form/Select'
-import Button from 'src/shared/components/ui/Button'
-import QuantityCart from '../../home/components/QuantityCart'
-import Label from 'src/shared/components/ui/Label'
-import useTireDetail from '../../hooks/useTireDetail'
-import ProductSkeleton from 'src/shared/components/ui/ProductSkeleton'
 import Flex from 'src/shared/components/ui/Flex'
-import RelatedModels from '../../home/components/RelatedModels'
+import Label from 'src/shared/components/ui/Label'
+import Button from 'src/shared/components/ui/Button'
+import Section from 'src/components/store-ui/Section'
+import useTireDetail from '../../hooks/useTireDetail'
 import tire_webp from '/public/barum-bravuris-5.webp'
 import { formatPrice, formatString } from 'src/utils/format'
+import QuantityCart from '../../home/components/QuantityCart'
+import RelatedModels from '../../home/components/RelatedModels'
+import ProductSkeleton from 'src/shared/components/ui/ProductSkeleton'
 
 const ProductDetailPage = () => {
 
@@ -24,7 +21,6 @@ const ProductDetailPage = () => {
     handleAddToCart,
     isLoadingChangeQty,
   } = useTireDetail()
-
 
   if (isLoading) {
     return (
@@ -42,8 +38,8 @@ const ProductDetailPage = () => {
         </div>
         <div className='flex flex-col flex-1 gap-y-2 w-full self-start'>
           <p className='text-secondary font-medium text-sm'>{tire?.brand?.name}</p>
-          <h1 className='text-3xl font-bold uppercase'>{tire?.model_name}</h1>
-          <Label hideLabel title="Medida" value={formatString(tire?.size?.label)} />
+          <h1 className='text-3xl font-bold uppercase'>{formatString(tire?.size?.label)}</h1>
+          <Label hideLabel title="Medida" value={tire?.model_name} />
           <div className='rounded-xl flex gap-2 items-center'>
             <p className='font-bold text-3xl'>{formatPrice(tire?.price)}</p>
             <span className='text-neutral-500'>MXN - C/U</span>

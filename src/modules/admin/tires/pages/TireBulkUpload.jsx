@@ -1,8 +1,8 @@
 import React from 'react'
 import AdminForm from 'src/components/admin-ui/form/AdminForm'
 import AdminGeneralLayout from 'src/layouts/admin/components/AdminGeneralLayout'
-import useTireBulkUploadForm from 'src/hooks/useTireBulkUploadForm'
 import FileDropZoneController from 'src/components/admin-ui/form/FileDropZoneController'
+import useTireBulkUploadForm from 'src/components/layout/hooks/useTireBulkUploadForm'
 
 const TireBulkUpload = () => {
 

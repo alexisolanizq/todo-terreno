@@ -15,6 +15,10 @@ export const useAddToCartQuery = () => {
   return useMutationQuery({
     mutationFn: cartService.addItem,
     invalidateKeys: ["cart"],
+    successMessage: "Producto agregado al carrito",
+    // successMessage: (data) => {
+    //   console.log(data);
+    // },
   });
 };
 
@@ -22,6 +26,7 @@ export const useUpdateCartItemQuery = () => {
   return useMutationQuery({
     mutationFn: cartService.updateItem,
     invalidateKeys: ["cart"],
+    successMessage: "Carrito actualizado",
   });
 };
 
@@ -29,12 +34,14 @@ export const useRemoveCartItemQuery = () => {
   return useMutationQuery({
     mutationFn: (itemId) => cartService.removeItem(itemId),
     invalidateKeys: ["cart"],
+    successMessage: "Producto eliminado",
   });
 };
 
 export const useClearCartQuery = () => {
   return useMutationQuery({
-    mutationFn: cartService.clearCart(),
+    mutationFn: cartService.clearCart,
     invalidateKeys: ["cart"],
+    successMessage: "Carrito vaciado",
   });
 };

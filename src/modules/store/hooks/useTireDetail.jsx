@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom"
 import { useTireDetailQuery } from "../queries/tire.query"
-import { useCallback, useState } from "react";
-import { useAddToCartQuery, useUpdateCartItemQuery } from "../cart/queries/cart.query";
+import useCart from "../cart/hooks/useCart"
+import { useState } from "react"
 
 const useTireDetail = () => {
 
@@ -9,22 +9,18 @@ const useTireDetail = () => {
 
   const { data: { tire, related } = {}, isLoading, } = useTireDetailQuery(slug)
 
-  const updateQuantity = useUpdateCartItemQuery()
-  const addItemWithQty = useAddToCartQuery()
-
   const [quantity, setQuantity] = useState(1)
 
   const handleChange = (newQty) => {
     setQuantity(newQty);
   };
 
-  const handleAddToCart = () => {
+  const { addItem, isLoading: isLoadingChangeQty } = useCart()
+
+  const handleAddToCart = async () => {
     if (!tire?.id) return
 
-    addItemWithQty.mutateAsync({
-      itemId: tire?.id,
-      quantity
-    })
+    await addItem(tire.id, quantity)
   }
 
   return {
@@ -34,7 +30,7 @@ const useTireDetail = () => {
     handleChange,
     handleAddToCart,
     related: related,
-    isLoadingChangeQty: updateQuantity.isPending
+    isLoadingChangeQty
   }
 }
 

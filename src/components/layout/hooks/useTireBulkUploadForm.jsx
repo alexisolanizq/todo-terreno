@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form'
-import { useTireStore } from '../features/inventory/tires/store/useTireStore'
+import { useTireStore } from 'src/features/inventory/tires/store/useTireStore'
 
 const useTireBulkUploadForm = () => {
 

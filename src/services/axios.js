@@ -1,5 +1,6 @@
 import axios from "axios";
 import { getCartId } from "src/utils/cartId";
+import { showError } from "src/utils/toast";
 
 const api = axios.create({
   baseURL:
@@ -28,5 +29,40 @@ api.interceptors.request.use((config) => {
   }
   return config;
 });
+
+api.interceptors.response.use(
+  (response) => response,
+  (error) => {
+    const status = error?.response?.status;
+
+    if (!error.config?.skipToast) {
+      switch (status) {
+        case 401:
+          showError({
+            response: { data: { message: "Sesión expirada 🔐" } },
+          });
+          break;
+
+        case 403:
+          showError({
+            response: { data: { message: "No tienes permisos 🚫" } },
+          });
+          break;
+
+        case 500:
+          showError({
+            response: { data: { message: "Error del servidor 😵" } },
+          });
+          break;
+
+        default:
+          showError(error);
+          break;
+      }
+    }
+
+    return Promise.reject(error);
+  },
+);
 
 export default api;

@@ -10,8 +10,8 @@ const ProductCard = ({ product, onBuy, isAdding, onToggleFavorite, hideFooter = 
             </Link>
             <div className='flex flex-col gap-y-2 w-full mb-3'>
                 <p className='text-sm text-secondary'>{product?.brand?.name}</p>
-                <Link to={`/${product?.slug}`} className='text-lg'>{product?.model_name}</Link>
-                <p className='text-neutral-700 text-sm'>{formatString(product?.size?.label)}</p>
+                <Link to={`/${product?.slug}`} className='text-lg font-medium'>{formatString(product?.size?.label)}</Link>
+                <p className='text-neutral-700 text-sm'>{product?.model_name}</p>
                 <div className="flex items-center gap-x-2">
                     <h2 className='text-lg font-semibold'>{formatPrice(product?.price)}</h2>
                     <p className='text-secondary text-xs'>{product.stock <= 5 && "(Pocas piezas)"}</p>
@@ -23,7 +23,7 @@ const ProductCard = ({ product, onBuy, isAdding, onToggleFavorite, hideFooter = 
                         <button onClick={onToggleFavorite} className="rounded-full bg-primary-soft outline-1 outline-primary-strong hover:bg-primary-strong w-10 h-10">
                             <i className='ri-heart-line font-medium text-xl' />
                         </button>
-                        <button className="flex flex-1 items-center justify-center gap-4 rounded-full bg-secondary text-primary hover:bg-secondary-strong w-10 h-10" onClick={onBuy} disabled={isAdding}>
+                        <button className="flex flex-1 items-center justify-center gap-4 rounded-full bg-secondary text-primary hover:bg-secondary-strong w-10 h-10 disabled:bg-secondary-disabled" onClick={onBuy} disabled={isAdding}>
                             <i className='ri-shopping-cart-line font-medium text-lg' />
                             <p>Agregar</p>
                         </button>

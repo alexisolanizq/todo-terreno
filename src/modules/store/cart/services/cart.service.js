@@ -5,30 +5,45 @@ export const cartService = {
     const { data } = await api.get("cart");
     return data || {};
   },
-  addItem: async ({itemId, quantity = 1}) => {
-    const { data } = await api.post("/cart/add", {
-      tire_id: itemId,
-      quantity: quantity,
-    });
+  addItem: async ({ itemId, quantity = 1 }) => {
+    const { data } = await api.post(
+      "/cart/add",
+      {
+        tire_id: itemId,
+        quantity: quantity,
+      },
+      {
+        skipToast: true,
+      },
+    );
     return data?.data?.cart;
   },
 
   updateItem: async ({ itemId, quantity }) => {
-    console.log("PUT ejecutándose", itemId, quantity);
-    const { data } = await api.put(`/cart/update/${itemId}`, {
-      quantity,
-    });
+    const { data } = await api.put(
+      `/cart/update/${itemId}`,
+      {
+        quantity,
+      },
+      {
+        skipToast: true,
+      },
+    );
 
     return data?.data?.cart;
   },
 
   removeItem: async (itemId) => {
-    const { data } = await api.delete(`/cart/remove/${itemId}`);
+    const { data } = await api.delete(`/cart/remove/${itemId}`, {
+      skipToast: true,
+    });
     return data?.data?.cart;
   },
 
   clearCart: async () => {
-    const { data } = await api.delete("/cart/clear");
+    const { data } = await api.delete("/cart/clear", {
+      skipToast: true,
+    });
     return data?.data?.cart;
   },
 };

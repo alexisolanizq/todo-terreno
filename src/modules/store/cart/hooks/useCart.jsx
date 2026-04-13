@@ -1,19 +1,39 @@
-import React from 'react'
-import { useCartQuery, useRemoveCartItemQuery } from '../queries/cart.query'
+import { useAddToCartQuery, useCartQuery, useClearCartQuery, useRemoveCartItemQuery, useUpdateCartItemQuery } from '../queries/cart.query'
 
 const useCart = () => {
 
-  const { data: cart, isLoading } = useCartQuery()
+  const addMutation = useAddToCartQuery()
   const removeItemMutation = useRemoveCartItemQuery()
+  const updatetMutation = useUpdateCartItemQuery()
+  const clearMutation = useClearCartQuery()
 
-  const onDeleteItem = async (id) => {
-    await removeItemMutation.mutate(id)
+  const { data: cart, isLoading } = useCartQuery()
+
+
+  const addItem = (itemId, quantity = 1) => {
+    return addMutation.mutateAsync({ itemId, quantity })
   }
+
+  const updateItem = (itemId, quantity) => {
+    return updatetMutation.mutateAsync({ itemId, quantity })
+  }
+
+  const removeItem = (id) => {
+    return removeItemMutation.mutateAsync(id)
+  }
+
+  const clearCart = () => {
+    return clearMutation.mutateAsync();
+    
+  };
 
   return {
     cart,
-    isLoading,
-    onDeleteItem,
+    isLoading: isLoading || removeItemMutation.isPending || addMutation.isPending || updatetMutation.isPending || clearMutation.isPending,
+    addItem,
+    updateItem,
+    removeItem,
+    clearCart
   }
 }
 

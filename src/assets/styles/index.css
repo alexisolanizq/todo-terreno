@@ -62,9 +62,9 @@ body {
   overflow-x: hidden;
 }
 
-button {
+/* button {
   cursor: pointer;
-}
+} */
 
 @layer utilities {
   .animate-marquee {
